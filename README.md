@@ -33,6 +33,10 @@ project/ │ ├── index1.html # Main HTML file ├── style1.css # Style
 
 4. Enter a source and destination, select travel mode, and click Get Route.
 
+## Deployed Version
+https://green-lane.vercel.app/
+
+
 📌 Notes
 Ensure internet access for fetching map tiles and live data.
 
