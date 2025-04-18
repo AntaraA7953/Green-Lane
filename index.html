@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green-Lane</title>
-    <link rel="stylesheet" href="style1.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GREEN LANE - EcoRoute</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style1.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
 </head>
 <body>
-    
-<script src="scripts1.js"></script>
+  <div id="introImageOverlay">
+    <img src="ChatGPT Image Apr 13, 2025, 04_08_21 PM.png" alt="Welcome Image" />
+  </div>
+
+  <header>🌱 GREEN LANE</header>
+  <button class="toggle-dark" onclick="toggleDarkMode()">🌓</button>
+
+  <div class="container">
+    <aside>
+      <div class="input-group">
+        <label for="source">Source</label>
+        <input type="text" id="source" placeholder="e.g. Delhi">
+      </div>
+      <div class="input-group">
+        <label for="destination">Destination</label>
+        <input type="text" id="destination" placeholder="e.g. Agra">
+      </div>
+      <div class="input-group">
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="driving-car">Driving</option>
+          <option value="cycling-regular">Cycling</option>
+          <option value="foot-walking">Walking</option>
+          <option value="motorcycle">Motorbike</option>
+          <option value="bus">Public Transport</option>
+        </select>
+      </div>
+      <button id="getRouteBtn" onclick="getEcoRoute()">Get Route</button>
+      <div class="route-details" id="routeDetails"></div>
+    </aside>
+    <div id="map"></div>
+  </div>
+
+  <script src="scripts1.js"></script>
 </body>
 </html>
