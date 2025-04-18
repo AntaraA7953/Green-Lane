@@ -18,7 +18,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let routeControls = [];
 
 async function geocode(place) {
-  const res = await fetch(https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(place)});
+  const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(place)}`);
   const data = await res.json();
   if (data.length === 0) throw new Error("Place not found");
   return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
@@ -77,10 +77,10 @@ async function getEcoRoute() {
 
         const mid = r.coordinates[Math.floor(r.coordinates.length / 2)];
 
-        const weatherRes = await fetch(https://api.openweathermap.org/data/2.5/weather?lat=${mid.lat}&lon=${mid.lng}&appid=${apiKey}&units=metric);
+        const weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${mid.lat}&lon=${mid.lng}&appid=${apiKey}&units=metric`);
         const weather = await weatherRes.json();
 
-        const airRes = await fetch(https://api.openweathermap.org/data/2.5/air_pollution?lat=${mid.lat}&lon=${mid.lng}&appid=${apiKey});
+        const airRes = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${mid.lat}&lon=${mid.lng}&appid=${apiKey}`);
         const air = await airRes.json();
         const aqi = air.list[0].main.aqi;
         const aqiText = ["Good", "Fair", "Moderate", "Poor", "Very Poor"][aqi - 1];
